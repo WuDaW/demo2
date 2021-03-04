@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4"></div>
-                <div class="col-xs-4">2021年3月4日 12时12分12秒</div>
+                <div class="col-xs-4" style="text-align: right;font-size: 24px;">2021年3月4日 12时12分12秒</div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
@@ -115,7 +115,13 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">待办事项</div>
                         <div class="panel-body">
-                            <table class="table table-striped">
+                            <div class="row">
+                                <div class="col-xs-3 bg-danger">特急</div>
+                                <div class="col-xs-3 bg-warning">急</div>
+                                <div class="col-xs-3 bg-info">一般</div>
+                                <div class="col-xs-3"></div>
+                            </div>
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>序号</th>
@@ -127,7 +133,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr class="bg bg-danger">
                                         <td>1</td>
                                         <td>电话通知</td>
                                         <td>关于XXXX的通知</td>
