@@ -1,3 +1,9 @@
+#menu_main li {
+    height: 60px;
+    margin: 0 auto;
+    font-size: 24px;
+}
+
 #menu_main li:hover{
     background-color: #9acfea;
 }
