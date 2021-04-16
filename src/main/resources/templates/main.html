@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/main.css">
     <title>智能辅助系统</title>
-    <script type="javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -28,9 +28,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right" style="padding-right: 1%;">
-                    <li><a href="#">XX处</a></li>
+                    <li><a href="#" th:text="${uname.udanwei}">XX处</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">张三 <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:utext="${uname.rname} + ' <span class=\'caret\'></span>'">张三</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -59,12 +59,12 @@
             <div class="row">
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4"></div>
-                <div class="col-xs-4" style="text-align: right;font-size: 24px;">2021年3月4日 12时12分12秒</div>
+                <div id="today" class="col-xs-4" style="text-align: right;font-size: 24px;">2021年3月4日 12时12分12秒</div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">今日值班信息</div>
+                        <div class="panel-heading">今日值班信息<a href="#" style="float: right; color: white;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 维护</a></div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-xs-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">待办事项</div>
+                        <div class="panel-heading">待办事项<a href="#" style="float: right; color: white;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> 维护</a></div>
                         <div class="panel-body">
                             <div class="row" style="text-align: center;">
                                 <div class="col-xs-3"></div>
@@ -190,9 +190,122 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">各单位值班状态</div>
+                        <div class="panel-heading"><span th:text="${title_ss}">各单位值班状态--2021年4月10日</span><a href="#" style="float: right; color: white;"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 刷新</a></div>
                         <div class="panel-body">
-                            Panel content
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>单位</th>
+                                            <th>值班电话</th>
+                                            <th>主班</th>
+                                            <th>备班</th>
+                                            <th>系统状态</th>
+                                            <th>大项任务</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td><a href="javascript:showPeopleInfo()">张三</a> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>单位</th>
+                                            <th>值班电话</th>
+                                            <th>主班</th>
+                                            <th>备班</th>
+                                            <th>系统状态</th>
+                                            <th>大项任务</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>分公司二</td>
+                                            <td>0201-654321</td>
+                                            <td>王五 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>19012345678</td>
+                                            <td>赵六 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>19087654321</td>
+                                            <td><font color="red">网络不通，传真正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        <tr>
+                                            <td>分公司一</td>
+                                            <td>0201-123456</td>
+                                            <td>张三 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18012345678</td>
+                                            <td>李四 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><br>18087654321</td>
+                                            <td><font color="green">正常</font></td>
+                                            <td>无</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,5 +313,100 @@
         </div>
     </div>
 </div>
+
+<div id="people-info" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">人员档案</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table" border="1" align="center" cellpadding="10">
+
+                    <tr>
+                        <th bgcolor="BurlyWood">姓名</th>
+                        <td> 豪豪豪</td>
+                        <th bgcolor="BurlyWood">性别</th>
+                        <td>男</td>
+                        <th bgcolor="BurlyWood">民族</th>
+                        <td>汉</td>
+                        <td rowspan="3" width="100"><p><img width="100" border="0" src="img/eg.jpg" /></p></td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="BurlyWood">出生年月</th>
+                        <td>1989.4</td>
+                        <th bgcolor="BurlyWood">政治面貌</th>
+                        <td>党员</td>
+                        <th bgcolor="BurlyWood">学历</th>
+                        <td>本科</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="BurlyWood">入伍年月</th>
+                        <td>2008.9</td>
+                        <th bgcolor="BurlyWood">毕业时间</th>
+                        <td>2013.6</td>
+                        <th bgcolor="BurlyWood">籍贯</th>
+                        <td>河北武安</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="BurlyWood">现等级</th>
+                        <td>技术少校</td>
+                        <th bgcolor="BurlyWood">等级时间</th>
+                        <td>2019.6</td>
+                        <th bgcolor="BurlyWood">单位</th>
+                        <td colspan="2">分公司十一</td>
+                    </tr>
+
+                    <tr>
+                        <th height="160" bgcolor="BurlyWood">培训经历</th>
+                        <td colspan="6">
+                            <p>2008.9至2011.6 --- 于XX学校学习XX专业</p>
+                            <p>2011.9至2013.6 --- 于XX学校学习XX专业</p>
+                            <p>2017.4至2017.6 --- 于XX学校学习XX专业</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th height="160" bgcolor="BurlyWood"> 任职经历</th>
+                        <td colspan="6">
+                            <p>2013.6至2014.6 --- 于XX单位任XX职务</p>
+                            <p>2014.6至2017.12 --- 于XX单位任XX职务</p>
+                            <p>2017.12至今 --- 于XX单位任XX职务</p>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script>
+    setInterval(function(){
+        var dd = ['日','一','二','三','四','五','六'];
+        var date = new Date();
+        var year = date.getFullYear();    //获取当前年份
+        var mon = date.getMonth()+1;      //获取当前月份
+        var da = date.getDate();          //获取当前日
+        var day = date.getDay();          //获取当前星期几
+        var h = date.getHours();          //获取小时
+        var m = date.getMinutes();        //获取分钟
+        var s = date.getSeconds();        //获取秒
+        var hh = h > 9 ? h : '0'+h;
+        var mm = m > 9 ? m : '0'+m;
+        var ss = s > 9 ? s : '0'+s;
+        var d = document.getElementById('today');
+        d.innerHTML=year+'年'+mon+'月'+da+'日'+'星期'+dd[day]+' '+hh+'时'+mm+'分'+ss+'秒';
+    },1000);
+
+    function showPeopleInfo() {
+        $('#people-info').modal('show');
+    }
+</script>
 </body>
 </html>
